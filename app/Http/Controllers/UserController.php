@@ -15,6 +15,11 @@ class UserController extends Controller
 
     public function findOne(Request $request){
         $user = User::find($request->id);
+        return $user->only(['name','email']);
+    }
+
+    public function findOneAddress(Request $request){
+        $user = User::find($request->id);
         return $user->address;
     }
 
