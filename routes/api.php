@@ -21,5 +21,5 @@ Route::post('/addresses',[AddressController::class,'store']);
 Route::get('/invoices',[InvoiceController::class,'index']);
 Route::get('/invoices/{id}',[InvoiceController::class,'findOne']);
 
-Route::post('/users/{id}/invoices',[InvoiceController::class,'store']);
+Route::post('/invoices',[InvoiceController::class,'store']);
 

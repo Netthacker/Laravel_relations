@@ -31,6 +31,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
+        'id',
+        'address_id',
         'password',
         'remember_token',
     ];
@@ -46,9 +48,4 @@ class User extends Authenticatable
     ];
 
 
-    //Relacionamento HasOne
-
-    public function address(){
-        return $this->hasOne(Address::class, 'id','address_id');
-    }
 }

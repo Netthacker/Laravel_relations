@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+
 class Address extends Model
 {
     public $table = 'addresses';
@@ -13,5 +15,10 @@ class Address extends Model
         'address',
     ];
 
+    protected $hidden=[
+        'id'
+    ];
+
     use HasFactory;
+
 }

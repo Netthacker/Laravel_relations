@@ -16,10 +16,15 @@ class InvoiceController extends Controller
 
     public function findOne(Request $request){
         $invoice = Invoice::find($request->id);
-        return $invoice;
+        $invoice['user'] = $invoice->user;
+        $invoice['address'] = $invoice->address;
+
+
+        return response()->json($invoice,200);
     }
 
-    //Fazendo do meu jeito
+    //Fazendo do jeito "errado"
+    /**
     public function store(Request $request){
         //Protegendo os dados que recebo do usuário
         $data = $request->only(['description','value']);
@@ -34,7 +39,14 @@ class InvoiceController extends Controller
         return response()->json($invoice,200);
 
 
-
-
     }
+
+     */
+
+     public function store(Request $request){
+        $data = $request->only(['description','value','address_id','user_id']);
+        $invoice = Invoice::create($data);
+        return response()->json($invoice,200);
+     }
+
 }
