@@ -12,12 +12,16 @@ class Address extends Model
     public $table = 'addresses';
 
     protected $fillable=[
-        'address',
+        'address', 'user_id'
     ];
 
     protected $hidden=[
-        'id'
+        'id', 'user_id'
     ];
+
+    public function user(){
+        return $this ->belongsTo(User::class);
+    }
 
     use HasFactory;
 

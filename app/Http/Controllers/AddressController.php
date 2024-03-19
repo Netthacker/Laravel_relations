@@ -15,11 +15,12 @@ class AddressController extends Controller
 
     public function findOne(Request $request){
         $addresses = Address::find($request->id);
+        $addresses['user']= $addresses->user;
         return $addresses;
     }
 
     public function store(Request $request){
-        $data = $request->only(['address']);
+        $data = $request->only(['address', 'user_id']);
 
         $address = Address::create($data);
         return response()->json($address, 200);

@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function findOne(Request $request){
         $user = User::find($request->id);
-        $user['address'] = $user->address;
+        $user['addresses'] = $user->addresses;
         return response()->json($user, 200,);
     }
 
